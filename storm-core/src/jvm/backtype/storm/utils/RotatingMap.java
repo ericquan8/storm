@@ -120,5 +120,13 @@ public class RotatingMap<K, V> {
             size+=bucket.size();
         }
         return size;
-    }    
+    }
+
+    public Set<Entry<K,V>> entrySet(){
+        Set<Entry<K,V>> entrySet = new HashSet<Entry<K, V>>();
+        for(HashMap<K, V> bucket: _buckets) {
+            entrySet.addAll(bucket.entrySet());
+        }
+        return entrySet;
+    }
 }
